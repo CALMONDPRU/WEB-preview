@@ -276,13 +276,6 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .fitting-card__price--call{ color:var(--ink-soft); font-weight:700; }
 .fitting-card__cta{ font-weight:700; color:var(--red); font-size:.85rem; }
 .vat-note{ font-size:.75rem; font-weight:600; color:var(--ink-soft); }
-/* Sectioned category pages (Roofline): heading + grid per section */
-.fitting-sections{ display:flex; flex-direction:column; gap:48px; }
-.fitting-section{ scroll-margin-top:100px; } /* clears the sticky header when jumped to from the nav */
-.fitting-section__title{
-  font-family:var(--font-head); font-size:1.35rem; margin-bottom:18px; padding-bottom:10px;
-  border-bottom:2px solid var(--line);
-}
 /* Image placeholder — same footprint a product photo will take later */
 .fitting-card__media--photo{
   flex-direction:column; gap:6px; height:auto; aspect-ratio:4/3;

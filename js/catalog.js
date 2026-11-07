@@ -192,48 +192,57 @@
       document.title = `${profile.name} — ${cat.name} | WBPlastics`;
       titleEl.textContent = `${cat.name} — ${profile.name}`;
       summaryEl.textContent = `${profile.productCount} fitting type${profile.productCount === 1 ? '' : 's'} across ${profile.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
+    } else if (cat.sections) {
+      // Sectioned categories (Roofline, Cladding, Drainage) work like Guttering's systems: the
+      // category page is a picker of its ranges, and each range has its own page,
+      // category.html?cat=<cat>&section=<range>. Older "#range" links still land on the range.
+      const sectionSlug = params.get('section') || (location.hash ? decodeURIComponent(location.hash.slice(1)) : null);
+      const section = sectionSlug ? cat.sections.find((s) => sectionSlugOf(s) === sectionSlug) : null;
+
+      if (!section) {
+        document.title = `${cat.name} | WBPlastics`;
+        titleEl.textContent = cat.name;
+        summaryEl.textContent = `Choose a range below, then a product. ${cat.productCount} products${cat.itemCount !== cat.productCount ? ` across ${cat.itemCount} stock lines` : ''}.`;
+        breadcrumb.appendChild(el('span', {}, [document.createTextNode(cat.name)]));
+        grid.innerHTML = '';
+        grid.className = 'fitting-grid fitting-grid--profiles';
+        cat.sections.forEach((s) => {
+          const prices = s.fittingTypes.map((f) => f.representativePrice).filter((p) => p !== null && p !== undefined);
+          const from = prices.length ? fmtPrice(Math.min(...prices)) : null;
+          grid.appendChild(el('a', { class: 'fitting-card', href: sectionHref(cat, s) }, [
+            el('h3', {}, [document.createTextNode(s.name)]),
+            el('p', { class: 'fitting-card__meta' }, [
+              document.createTextNode(`${s.fittingTypes.length} product${s.fittingTypes.length === 1 ? '' : 's'}${from ? ` · from ${from} inc VAT` : ''}`),
+            ]),
+            el('span', { class: 'fitting-card__cta' }, [document.createTextNode('View products →')]),
+          ]));
+        });
+        return;
+      }
+
+      // Tidy an old "#range" link into the proper range address.
+      if (!params.get('section')) history.replaceState(null, '', sectionHref(cat, section));
+      breadcrumb.appendChild(el('a', { href: `category.html?cat=${encodeURIComponent(cat.slug)}` }, [document.createTextNode(cat.name)]));
+      breadcrumb.appendChild(document.createTextNode(' / '));
+      breadcrumb.appendChild(el('span', {}, [document.createTextNode(section.name)]));
+      document.title = `${section.name} — ${cat.name} | WBPlastics`;
+      titleEl.textContent = `${cat.name} — ${section.name}`;
+      // List the colours this range actually comes in (none for single-option ranges like Drainage).
+      const used = new Set(section.fittingTypes.flatMap((f) => f.colourNames || []));
+      const colours = (cat.colourNames || []).filter((c) => used.has(c));
+      const n = section.fittingTypes.length;
+      summaryEl.textContent = colours.length
+        ? `${n} product${n === 1 ? '' : 's'}. Choose ${cat.slug === 'roofline' ? 'a board size' : 'a product'}, then your colour — ${colours.length > 1 ? colours.slice(0, -1).join(', ') + ' or ' : ''}${colours[colours.length - 1]}, where made.`
+        : `${n} product${n === 1 ? '' : 's'} in our ${section.name} range.`;
+      grid.innerHTML = '';
+      grid.className = 'fitting-grid';
+      section.fittingTypes.forEach((f) => grid.appendChild(fittingCard(cat, f)));
+      return;
     } else {
       breadcrumb.appendChild(el('span', {}, [document.createTextNode(cat.name)]));
       document.title = `${cat.name} | WBPlastics`;
       titleEl.textContent = cat.name;
-      // Sheet-built categories (Roofline, Cladding) list the colours they actually offer; Drainage
-      // (sheet-built, no colour range) just points at its sections.
-      const colourList = cat.colourNames && cat.colourNames.length
-        ? cat.colourNames.slice(0, -1).join(', ') + (cat.colourNames.length > 1 ? ' or ' : '') + cat.colourNames[cat.colourNames.length - 1]
-        : null;
-      summaryEl.textContent = colourList
-        ? `${cat.productCount} products across ${cat.itemCount} stock lines. Choose ${cat.slug === 'roofline' ? 'a board size' : 'a product'}, then your colour — ${colourList}, where made.`
-        : cat.sheetBuilt
-          ? `${cat.productCount} products across ${cat.sections.length} ranges: ${cat.sections.map((s) => s.name).join(', ')}.`
-          : `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
-    }
-
-    // Sectioned categories (Roofline): one heading + card grid per section, in the order the
-    // build gives them (cards already sorted smallest board first).
-    if (cat.sections) {
-      grid.innerHTML = '';
-      grid.className = 'fitting-sections';
-      cat.sections.forEach((section) => {
-        const sectionGrid = el('div', { class: 'fitting-grid' }, []);
-        section.fittingTypes.forEach((f) => sectionGrid.appendChild(fittingCard(cat, f)));
-        grid.appendChild(el('section', { class: 'fitting-section', id: slugAnchor(section.name) }, [
-          el('h2', { class: 'fitting-section__title' }, [document.createTextNode(section.name)]),
-          sectionGrid,
-        ]));
-      });
-      // The cards are added after the page loads, so the browser's own jump to #section (from
-      // a nav link like category.html?cat=roofline#flat-board) has already missed — do it now.
-      // Instant, not smooth (the site sets scroll-behavior:smooth): a smooth scroll started while
-      // the page is still loading gets cancelled. Repeated on 'load' in case images/fonts shift it.
-      if (location.hash) {
-        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-        if (target) {
-          const jump = () => target.scrollIntoView({ behavior: 'instant', block: 'start' });
-          jump();
-          if (document.readyState !== 'complete') window.addEventListener('load', jump, { once: true });
-        }
-      }
-      return;
+      summaryEl.textContent = `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
     }
 
     grid.innerHTML = '';
@@ -243,6 +252,11 @@
 
   function slugAnchor(s) {
     return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+  // A range's address: category.html?cat=roofline&section=flat-board (the nav links use the same).
+  function sectionSlugOf(section) { return slugAnchor(section.name); }
+  function sectionHref(cat, section) {
+    return `category.html?cat=${encodeURIComponent(cat.slug)}&section=${encodeURIComponent(sectionSlugOf(section))}`;
   }
 
   function fittingCard(cat, f) {
@@ -291,13 +305,22 @@
     const profile = cat && cat.hasProfiles && product.profileSlug
       ? cat.profiles.find((p) => p.slug === product.profileSlug)
       : null;
+    // Sectioned categories: the product's range page sits between the category and the product.
+    const section = cat && cat.sections && product.section
+      ? cat.sections.find((s) => s.name === product.section)
+      : null;
+    const middle = profile
+      ? { name: profile.name, href: `category.html?cat=${encodeURIComponent(product.categorySlug)}&profile=${encodeURIComponent(profile.slug)}` }
+      : section
+        ? { name: section.name, href: sectionHref(cat, section) }
+        : null;
 
-    document.title = `${product.fittingType} — ${profile ? profile.name + ' — ' : ''}${product.categoryName} | WBPlastics`;
+    document.title = `${product.fittingType} — ${middle ? middle.name + ' — ' : ''}${product.categoryName} | WBPlastics`;
     breadcrumb.appendChild(document.createTextNode(' / '));
     breadcrumb.appendChild(el('a', { href: `category.html?cat=${encodeURIComponent(product.categorySlug)}` }, [document.createTextNode(product.categoryName)]));
     breadcrumb.appendChild(document.createTextNode(' / '));
-    if (profile) {
-      breadcrumb.appendChild(el('a', { href: `category.html?cat=${encodeURIComponent(product.categorySlug)}&profile=${encodeURIComponent(profile.slug)}` }, [document.createTextNode(profile.name)]));
+    if (middle) {
+      breadcrumb.appendChild(el('a', { href: middle.href }, [document.createTextNode(middle.name)]));
       breadcrumb.appendChild(document.createTextNode(' / '));
     }
     breadcrumb.appendChild(el('span', {}, [document.createTextNode(product.fittingType)]));
@@ -310,7 +333,7 @@
     const labelFor = (colour) => (noColourChoice ? product.fittingType : `${product.fittingType} — ${colour.name}`);
 
     const head = el('div', { class: 'product-detail__head' }, [
-      el('p', { class: 'eyebrow' }, [document.createTextNode(profile ? `${product.categoryName} — ${profile.name}` : product.categoryName)]),
+      el('p', { class: 'eyebrow' }, [document.createTextNode(middle ? `${product.categoryName} — ${middle.name}` : product.categoryName)]),
       el('h1', {}, [document.createTextNode(product.fittingType)]),
       el('p', { class: 'product-detail__count' }, [
         document.createTextNode(noColourChoice
@@ -432,14 +455,14 @@
 
     renderInfoPanel(product.colours[selectedIndex]);
 
-    // Other fitting types in this profile (or category, if it has no profile branch)
+    // Other products in this system / range (or category, if it has neither)
     if (cat) {
-      const scopeFittingTypes = profile ? profile.fittingTypes : cat.fittingTypes;
-      const scopeLabel = profile ? `${profile.name} (${product.categoryName})` : product.categoryName;
-      const backHref = profile
-        ? `category.html?cat=${encodeURIComponent(product.categorySlug)}&profile=${encodeURIComponent(profile.slug)}`
-        : `category.html?cat=${encodeURIComponent(product.categorySlug)}`;
-      const others = scopeFittingTypes.filter((f) => f.id !== product.id).sort((a, b) => a.fittingType.localeCompare(b.fittingType));
+      const scopeFittingTypes = profile ? profile.fittingTypes : section ? section.fittingTypes : cat.fittingTypes;
+      const scopeLabel = middle ? `${middle.name} (${product.categoryName})` : product.categoryName;
+      const backHref = middle ? middle.href : `category.html?cat=${encodeURIComponent(product.categorySlug)}`;
+      // Ranges keep their own order (sheet / size order); everything else is alphabetical.
+      const others = scopeFittingTypes.filter((f) => f.id !== product.id);
+      if (!section) others.sort((a, b) => a.fittingType.localeCompare(b.fittingType));
       if (others.length) {
         const otherWrap = el('div', { class: 'related-fittings' }, [
           el('h2', {}, [document.createTextNode(`More in ${scopeLabel}`)]),
