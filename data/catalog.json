@@ -1,5 +1,5 @@
 {
-  "generatedFrom": "assets/stock_csv.csv + exports/rainwater_items.csv (Guttering & Downpipe) + exports/fascia_goods.csv (Roofline) + exports/cladding_goods.csv (Cladding) + exports/drainage_goods.csv (Drainage)",
+  "generatedFrom": "assets/stock_csv.csv + exports/rainwater_items.csv (Guttering & Downpipe) + exports/fascia_goods.csv (Roofline) + exports/cladding_goods.csv (Cladding) + exports/drainage_goods.csv (Drainage) + exports/sealant_goods.csv (Sealants & Adhesives)",
   "fixedColours": [
     "Black",
     "White",
@@ -46,13 +46,13 @@
         {
           "id": "lead-flashing__general-lead-flashing",
           "fittingType": "General Lead / Flashing",
-          "itemCount": 4,
+          "itemCount": 3,
           "representativePrice": null
         }
       ],
       "profiles": [],
       "productCount": 6,
-      "itemCount": 51
+      "itemCount": 50
     },
     {
       "slug": "roof-windows-accessories",
@@ -112,63 +112,248 @@
       "hasProfiles": false,
       "fittingTypes": [
         {
-          "id": "sealants-adhesives__adhesive-foam",
-          "fittingType": "Adhesive Foam",
-          "itemCount": 3,
-          "representativePrice": 15
-        },
-        {
-          "id": "sealants-adhesives__application-gun",
-          "fittingType": "Application Gun",
-          "itemCount": 3,
-          "representativePrice": 0
-        },
-        {
-          "id": "sealants-adhesives__bond",
-          "fittingType": "Bond",
-          "itemCount": 3,
-          "representativePrice": 5
-        },
-        {
-          "id": "sealants-adhesives__caulk",
-          "fittingType": "Caulk",
+          "id": "sealants-adhesives__activator-780-200ml",
+          "fittingType": "Activator 780 200ml",
           "itemCount": 1,
-          "representativePrice": 1.94
+          "representativePrice": 3.39,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.39
         },
         {
-          "id": "sealants-adhesives__general-sealant-adhesive",
-          "fittingType": "General Sealant / Adhesive",
-          "itemCount": 10,
-          "representativePrice": 3
-        },
-        {
-          "id": "sealants-adhesives__glue",
-          "fittingType": "Glue",
+          "id": "sealants-adhesives__multi-hand-wipes-300",
+          "fittingType": "Multi-hand wipes 300",
           "itemCount": 1,
-          "representativePrice": null
+          "representativePrice": 10,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 10
         },
         {
-          "id": "sealants-adhesives__resin",
-          "fittingType": "Resin",
+          "id": "sealants-adhesives__orange-cox-gun-400ml",
+          "fittingType": "Orange Cox gun 400ml",
           "itemCount": 1,
-          "representativePrice": null
+          "representativePrice": 8.33,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 8.33
         },
         {
-          "id": "sealants-adhesives__solvent-cleaner",
-          "fittingType": "Solvent / Cleaner",
-          "itemCount": 4,
-          "representativePrice": null
+          "id": "sealants-adhesives__penosil-317-neutral-silicone",
+          "fittingType": "Penosil 317 neutral silicone",
+          "itemCount": 8,
+          "representativePrice": 3,
+          "sizeMm": null,
+          "colourNames": [
+            "White",
+            "Clear",
+            "Black",
+            "Anthracite Grey",
+            "Cream",
+            "Chartwell Green",
+            "Rosewood",
+            "Toffee"
+          ],
+          "maxPrice": 3
         },
         {
-          "id": "sealants-adhesives__wipes-tissue",
-          "fittingType": "Wipes / Tissue",
-          "itemCount": 4,
-          "representativePrice": null
+          "id": "sealants-adhesives__penosil-decorators-caulk-white-330ml",
+          "fittingType": "Penosil decorators caulk white 330ml",
+          "itemCount": 1,
+          "representativePrice": 1.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 1.5
+        },
+        {
+          "id": "sealants-adhesives__penosil-expanding-gap-filler-foam",
+          "fittingType": "Penosil expanding gap filler foam",
+          "itemCount": 1,
+          "representativePrice": 5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 5
+        },
+        {
+          "id": "sealants-adhesives__penosil-foam-gun-cleaner-500ml",
+          "fittingType": "Penosil foam gun cleaner 500ml",
+          "itemCount": 1,
+          "representativePrice": 3,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3
+        },
+        {
+          "id": "sealants-adhesives__penosil-glass-cleaner-500ml",
+          "fittingType": "Penosil glass cleaner 500ml",
+          "itemCount": 1,
+          "representativePrice": 3.2,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.2
+        },
+        {
+          "id": "sealants-adhesives__penosil-lead-mate-dark-grey",
+          "fittingType": "Penosil lead mate dark grey",
+          "itemCount": 1,
+          "representativePrice": 3.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.5
+        },
+        {
+          "id": "sealants-adhesives__penosil-pear-drop-solvent-cleaner-500ml",
+          "fittingType": "Penosil pear drop solvent cleaner 500ml",
+          "itemCount": 1,
+          "representativePrice": 5.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 5.5
+        },
+        {
+          "id": "sealants-adhesives__penosil-premium-foam-gun-red-black",
+          "fittingType": "Penosil premium foam gun red/black",
+          "itemCount": 1,
+          "representativePrice": 15,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 15
+        },
+        {
+          "id": "sealants-adhesives__penosil-premium-speedfix-878-adhesive-foam",
+          "fittingType": "Penosil premium Speedfix 878 adhesive foam",
+          "itemCount": 1,
+          "representativePrice": 5.65,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 5.65
+        },
+        {
+          "id": "sealants-adhesives__penosil-sanitary-bathroom-silicone-white-300ml",
+          "fittingType": "Penosil sanitary bathroom silicone white 300ml",
+          "itemCount": 1,
+          "representativePrice": 3.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.5
+        },
+        {
+          "id": "sealants-adhesives__polyester-resin-10-1-300ml-cartridge",
+          "fittingType": "Polyester resin 10:1 300ml cartridge",
+          "itemCount": 1,
+          "representativePrice": 7,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 7
+        },
+        {
+          "id": "sealants-adhesives__skeleton-sealant-gun-blue-400ml",
+          "fittingType": "Skeleton sealant gun blue 400ml",
+          "itemCount": 1,
+          "representativePrice": 5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 5
+        },
+        {
+          "id": "sealants-adhesives__solvent-cement-250ml",
+          "fittingType": "Solvent cement 250ml",
+          "itemCount": 1,
+          "representativePrice": 5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 5
+        },
+        {
+          "id": "sealants-adhesives__speedfix-seal-and-bond-black-290ml",
+          "fittingType": "Speedfix seal and bond black 290ml",
+          "itemCount": 1,
+          "representativePrice": 4.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 4.5
+        },
+        {
+          "id": "sealants-adhesives__speedfix-seal-and-bond-crystal-290ml",
+          "fittingType": "Speedfix seal and bond crystal 290ml",
+          "itemCount": 1,
+          "representativePrice": 4.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 4.5
+        },
+        {
+          "id": "sealants-adhesives__speedfix-seal-and-bond-white-290ml",
+          "fittingType": "Speedfix seal and bond white 290ml",
+          "itemCount": 1,
+          "representativePrice": 4.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 4.5
+        },
+        {
+          "id": "sealants-adhesives__super-glue-high-viscocity-50g",
+          "fittingType": "Super glue high viscocity 50g",
+          "itemCount": 1,
+          "representativePrice": 3.39,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.39
+        },
+        {
+          "id": "sealants-adhesives__tissue-paper-roll",
+          "fittingType": "Tissue paper roll",
+          "itemCount": 1,
+          "representativePrice": 3.5,
+          "sizeMm": null,
+          "colourNames": [
+            "Standard"
+          ],
+          "maxPrice": 3.5
         }
       ],
       "profiles": [],
-      "productCount": 9,
-      "itemCount": 30
+      "productCount": 21,
+      "itemCount": 28,
+      "sheetBuilt": true
     },
     {
       "slug": "interior-wall-cladding",
@@ -16059,7 +16244,7 @@
       "section": null,
       "sizeMm": null,
       "existingColoursOnly": false,
-      "itemCount": 4,
+      "itemCount": 3,
       "representativePrice": null,
       "colours": [
         {
@@ -18497,265 +18682,113 @@
       ]
     },
     {
-      "id": "sealants-adhesives__adhesive-foam",
+      "id": "sealants-adhesives__activator-780-200ml",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "Adhesive Foam",
-      "fittingSlug": "adhesive-foam",
+      "fittingType": "Activator 780 200ml",
+      "fittingSlug": "activator-780-200ml",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 3,
-      "representativePrice": 15,
-      "colours": [
-        {
-          "name": "Black",
-          "available": true,
-          "sku": "PENO-S1FOAMGUN",
-          "price": 15,
-          "description": "PENOSIL PREMIUM FOAM GUN RED/BLACK",
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        }
-      ]
-    },
-    {
-      "id": "sealants-adhesives__application-gun",
-      "categorySlug": "sealants-adhesives",
-      "categoryName": "Sealants & Adhesives",
-      "profileSlug": null,
-      "profileName": null,
-      "fittingType": "Application Gun",
-      "fittingSlug": "application-gun",
-      "section": null,
-      "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 3,
-      "representativePrice": 0,
-      "colours": [
-        {
-          "name": "Black",
-          "available": true,
-          "sku": "PENO-CART-GUN",
-          "price": 0,
-          "description": "PENOSIL PREMIUM SEALING GUN BLACK/RED",
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        }
-      ]
-    },
-    {
-      "id": "sealants-adhesives__bond",
-      "categorySlug": "sealants-adhesives",
-      "categoryName": "Sealants & Adhesives",
-      "profileSlug": null,
-      "profileName": null,
-      "fittingType": "Bond",
-      "fittingSlug": "bond",
-      "section": null,
-      "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 3,
-      "representativePrice": 5,
-      "colours": [
-        {
-          "name": "Black",
-          "available": true,
-          "sku": "PENO-SPF-750-BL",
-          "price": 5,
-          "description": "SPEEDFIX SEAL AND BOND BLACK 290ML",
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": true,
-          "sku": "PENO-SPF-750-WH",
-          "price": 5,
-          "description": "SPEEDFIX SEAL AND BOND WHITE 290ML",
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        }
-      ]
-    },
-    {
-      "id": "sealants-adhesives__caulk",
-      "categorySlug": "sealants-adhesives",
-      "categoryName": "Sealants & Adhesives",
-      "profileSlug": null,
-      "profileName": null,
-      "fittingType": "Caulk",
-      "fittingSlug": "caulk",
-      "section": null,
-      "sizeMm": null,
-      "existingColoursOnly": false,
+      "existingColoursOnly": true,
       "itemCount": 1,
-      "representativePrice": 1.94,
+      "representativePrice": 3.39,
       "colours": [
         {
-          "name": "Black",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "White",
+          "name": "Standard",
           "available": true,
-          "sku": "OLIVEDECC01",
-          "price": 1.94,
-          "description": "PENOSIL DECORATORS CAULK WHITE 330ML",
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "sku": "WBPACTIVATOR",
+          "price": 3.39,
+          "description": "ACTIVATOR 780 200ML",
           "note": null
         }
       ]
     },
     {
-      "id": "sealants-adhesives__general-sealant-adhesive",
+      "id": "sealants-adhesives__multi-hand-wipes-300",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "General Sealant / Adhesive",
-      "fittingSlug": "general-sealant-adhesive",
+      "fittingType": "Multi-hand wipes 300",
+      "fittingSlug": "multi-hand-wipes-300",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 10,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 10,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "BDHW300",
+          "price": 10,
+          "description": "MULTI-HAND WIPES 300",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__orange-cox-gun-400ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Orange Cox gun 400ml",
+      "fittingSlug": "orange-cox-gun-400ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 8.33,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "COX400",
+          "price": 8.33,
+          "description": "ORANGE COX GUN 400ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-317-neutral-silicone",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil 317 neutral silicone",
+      "fittingSlug": "penosil-317-neutral-silicone",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 8,
       "representativePrice": 3,
       "colours": [
-        {
-          "name": "Black",
-          "available": true,
-          "sku": "OLIVELMNC27BL",
-          "price": 3,
-          "description": "PENOSIL 317 BLACK",
-          "note": null
-        },
         {
           "name": "White",
           "available": true,
           "sku": "OLIVELMN-C27W",
           "price": 3,
-          "description": "PENOSIL 317 WHITE",
+          "description": "PENOSIL 317 NEUTRAL SILICONE WHITE",
           "note": null
         },
         {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Clear",
+          "available": true,
+          "sku": "OLIVELMNC27TRANS",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE CLEAR",
+          "note": null
+        },
+        {
+          "name": "Black",
+          "available": true,
+          "sku": "OLIVELMNC27BL",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE BLACK",
           "note": null
         },
         {
@@ -18763,239 +18796,447 @@
           "available": true,
           "sku": "OLIVELMNC27AG7076",
           "price": 3,
-          "description": "PENOSIL 317 ANTHRACITE GREY 7016",
+          "description": "PENOSIL 317 NEUTRAL SILICONE ANTHRACITE GREY 7016",
           "note": null
         },
         {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Cream",
+          "available": true,
+          "sku": "OLIVELMN-C27CR",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE CREAM 9001",
+          "note": null
+        },
+        {
+          "name": "Chartwell Green",
+          "available": true,
+          "sku": "OLIVELMNC27CG",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE CHARWELL GREEN",
+          "note": null
+        },
+        {
+          "name": "Rosewood",
+          "available": true,
+          "sku": "OLIVELMNC27RW",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE ROSEWOOD",
+          "note": null
+        },
+        {
+          "name": "Toffee",
+          "available": true,
+          "sku": "OLIVELMNC27TOF",
+          "price": 3,
+          "description": "PENOSIL 317 NEUTRAL SILICONE TOFFEE",
           "note": null
         }
       ]
     },
     {
-      "id": "sealants-adhesives__glue",
+      "id": "sealants-adhesives__penosil-decorators-caulk-white-330ml",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "Glue",
-      "fittingSlug": "glue",
+      "fittingType": "Penosil decorators caulk white 330ml",
+      "fittingSlug": "penosil-decorators-caulk-white-330ml",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
+      "existingColoursOnly": true,
       "itemCount": 1,
-      "representativePrice": null,
+      "representativePrice": 1.5,
       "colours": [
         {
-          "name": "Black",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVEDECC01",
+          "price": 1.5,
+          "description": "PENOSIL DECORATORS CAULK WHITE 330ML",
           "note": null
         }
       ]
     },
     {
-      "id": "sealants-adhesives__resin",
+      "id": "sealants-adhesives__penosil-expanding-gap-filler-foam",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "Resin",
-      "fittingSlug": "resin",
+      "fittingType": "Penosil expanding gap filler foam",
+      "fittingSlug": "penosil-expanding-gap-filler-foam",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
+      "existingColoursOnly": true,
       "itemCount": 1,
-      "representativePrice": null,
+      "representativePrice": 5,
       "colours": [
         {
-          "name": "Black",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "UNIGUFOAM",
+          "price": 5,
+          "description": "PENOSIL EXPANDING GAP FILLER FOAM",
           "note": null
         }
       ]
     },
     {
-      "id": "sealants-adhesives__solvent-cleaner",
+      "id": "sealants-adhesives__penosil-foam-gun-cleaner-500ml",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "Solvent / Cleaner",
-      "fittingSlug": "solvent-cleaner",
+      "fittingType": "Penosil foam gun cleaner 500ml",
+      "fittingSlug": "penosil-foam-gun-cleaner-500ml",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 4,
-      "representativePrice": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3,
       "colours": [
         {
-          "name": "Black",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
-          "note": null
-        },
-        {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVEGUNC01",
+          "price": 3,
+          "description": "PENOSIL FOAM GUN CLEANER 500ML",
           "note": null
         }
       ]
     },
     {
-      "id": "sealants-adhesives__wipes-tissue",
+      "id": "sealants-adhesives__penosil-glass-cleaner-500ml",
       "categorySlug": "sealants-adhesives",
       "categoryName": "Sealants & Adhesives",
       "profileSlug": null,
       "profileName": null,
-      "fittingType": "Wipes / Tissue",
-      "fittingSlug": "wipes-tissue",
+      "fittingType": "Penosil glass cleaner 500ml",
+      "fittingSlug": "penosil-glass-cleaner-500ml",
       "section": null,
       "sizeMm": null,
-      "existingColoursOnly": false,
-      "itemCount": 4,
-      "representativePrice": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3.2,
       "colours": [
         {
-          "name": "Black",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVEGLASS",
+          "price": 3.2,
+          "description": "PENOSIL GLASS CLEANER 500ML",
           "note": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-lead-mate-dark-grey",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil lead mate dark grey",
+      "fittingSlug": "penosil-lead-mate-dark-grey",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3.5,
+      "colours": [
         {
-          "name": "White",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVELEDF01",
+          "price": 3.5,
+          "description": "PENOSIL LEAD MATE DARK GREY",
           "note": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-pear-drop-solvent-cleaner-500ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil pear drop solvent cleaner 500ml",
+      "fittingSlug": "penosil-pear-drop-solvent-cleaner-500ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 5.5,
+      "colours": [
         {
-          "name": "Brown",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVEASOLVENT",
+          "price": 5.5,
+          "description": "PENOSIL PEAR DROP SOLVENT CLEANER 500ML",
           "note": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-premium-foam-gun-red-black",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil premium foam gun red/black",
+      "fittingSlug": "penosil-premium-foam-gun-red-black",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 15,
+      "colours": [
         {
-          "name": "Anthracite Grey",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "PENO-S1FOAMGUN",
+          "price": 15,
+          "description": "PENOSIL PREMIUM FOAM GUN RED/BLACK",
           "note": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-premium-speedfix-878-adhesive-foam",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil premium Speedfix 878 adhesive foam",
+      "fittingSlug": "penosil-premium-speedfix-878-adhesive-foam",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 5.65,
+      "colours": [
         {
-          "name": "Caramel",
-          "available": false,
-          "sku": null,
-          "price": null,
-          "description": null,
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVEA1529",
+          "price": 5.65,
+          "description": "PENOSIL PREMIUM SPEEDFIX 878 ADHESIVE FOAM",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__penosil-sanitary-bathroom-silicone-white-300ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Penosil sanitary bathroom silicone white 300ml",
+      "fittingSlug": "penosil-sanitary-bathroom-silicone-white-300ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3.5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "OLIVES-11",
+          "price": 3.5,
+          "description": "PENOSIL SANITARY BATHROOM SILICONE WHITE 300ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__polyester-resin-10-1-300ml-cartridge",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Polyester resin 10:1 300ml cartridge",
+      "fittingSlug": "polyester-resin-10-1-300ml-cartridge",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 7,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "POLYRESIN",
+          "price": 7,
+          "description": "POLYESTER RESIN 10:1 300ML CARTRIDGE",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__skeleton-sealant-gun-blue-400ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Skeleton sealant gun blue 400ml",
+      "fittingSlug": "skeleton-sealant-gun-blue-400ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "SKELGUN",
+          "price": 5,
+          "description": "SKELETON SEALANT GUN BLUE 400ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__solvent-cement-250ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Solvent cement 250ml",
+      "fittingSlug": "solvent-cement-250ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "SC250",
+          "price": 5,
+          "description": "SOLVENT CEMENT 250ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__speedfix-seal-and-bond-black-290ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Speedfix seal and bond black 290ml",
+      "fittingSlug": "speedfix-seal-and-bond-black-290ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 4.5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "PENO-SPF-750-BL",
+          "price": 4.5,
+          "description": "SPEEDFIX SEAL AND BOND BLACK 290ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__speedfix-seal-and-bond-crystal-290ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Speedfix seal and bond crystal 290ml",
+      "fittingSlug": "speedfix-seal-and-bond-crystal-290ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 4.5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "PENO-SPF-750-CL",
+          "price": 4.5,
+          "description": "SPEEDFIX SEAL AND BOND CRYSTAL 290ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__speedfix-seal-and-bond-white-290ml",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Speedfix seal and bond white 290ml",
+      "fittingSlug": "speedfix-seal-and-bond-white-290ml",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 4.5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "PENO-SPF-750-WH",
+          "price": 4.5,
+          "description": "SPEEDFIX SEAL AND BOND WHITE 290ML",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__super-glue-high-viscocity-50g",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Super glue high viscocity 50g",
+      "fittingSlug": "super-glue-high-viscocity-50g",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3.39,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "WBPGLUE",
+          "price": 3.39,
+          "description": "SUPER GLUE HIGH VISCOCITY 50G",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sealants-adhesives__tissue-paper-roll",
+      "categorySlug": "sealants-adhesives",
+      "categoryName": "Sealants & Adhesives",
+      "profileSlug": null,
+      "profileName": null,
+      "fittingType": "Tissue paper roll",
+      "fittingSlug": "tissue-paper-roll",
+      "section": null,
+      "sizeMm": null,
+      "existingColoursOnly": true,
+      "itemCount": 1,
+      "representativePrice": 3.5,
+      "colours": [
+        {
+          "name": "Standard",
+          "available": true,
+          "sku": "PENO-TISS",
+          "price": 3.5,
+          "description": "TISSUE PAPER ROLL",
           "note": null
         }
       ]

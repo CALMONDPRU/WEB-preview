@@ -54,6 +54,11 @@
     'Platinum Grey': '#a7abab',
     'Empire Blue': '#24426b',
     'Sky Blue': '#8db7dc',
+    // sealants
+    Clear: 'linear-gradient(135deg,#f4f7f9 0%,#dfe6ea 50%,#f4f7f9 100%)',
+    Crystal: 'linear-gradient(135deg,#f4f7f9 0%,#dfe6ea 50%,#f4f7f9 100%)',
+    Toffee: '#8a5a2e',
+    'Dark Grey': '#55595c',
   };
 
   // Photo placeholder for cards that don't have a product image yet — a framed "image coming
@@ -122,7 +127,7 @@
       const card = el('a', { class: 'category-card', href: `category.html?cat=${encodeURIComponent(cat.slug)}` }, [
         el('h3', {}, [document.createTextNode(cat.name)]),
         el('p', { class: 'category-card__meta' }, [
-          document.createTextNode(`${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} · ${cat.itemCount} stock lines`),
+          document.createTextNode(`${cat.productCount} ${cat.sheetBuilt ? 'product' : 'fitting type'}${cat.productCount === 1 ? '' : 's'} · ${cat.itemCount} stock lines`),
         ]),
         el('span', { class: 'category-card__cta' }, [document.createTextNode('Browse range →')]),
       ]);
@@ -242,7 +247,11 @@
       breadcrumb.appendChild(el('span', {}, [document.createTextNode(cat.name)]));
       document.title = `${cat.name} | WBPlastics`;
       titleEl.textContent = cat.name;
-      summaryEl.textContent = `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
+      // Sheet-built categories without ranges (e.g. Sealants & Adhesives before Product Category is
+      // filled in) are one flat list; their colour choices are shown per product.
+      summaryEl.textContent = cat.sheetBuilt
+        ? `${cat.productCount} product${cat.productCount === 1 ? '' : 's'}. Choose a product to see its price${cat.itemCount > cat.productCount ? ' and colour options' : ''}.`
+        : `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
     }
 
     grid.innerHTML = '';
