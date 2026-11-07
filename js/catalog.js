@@ -196,13 +196,16 @@
       breadcrumb.appendChild(el('span', {}, [document.createTextNode(cat.name)]));
       document.title = `${cat.name} | WBPlastics`;
       titleEl.textContent = cat.name;
-      // Sheet-built categories (Roofline, Cladding) list the colours they actually offer.
+      // Sheet-built categories (Roofline, Cladding) list the colours they actually offer; Drainage
+      // (sheet-built, no colour range) just points at its sections.
       const colourList = cat.colourNames && cat.colourNames.length
         ? cat.colourNames.slice(0, -1).join(', ') + (cat.colourNames.length > 1 ? ' or ' : '') + cat.colourNames[cat.colourNames.length - 1]
         : null;
       summaryEl.textContent = colourList
         ? `${cat.productCount} products across ${cat.itemCount} stock lines. Choose ${cat.slug === 'roofline' ? 'a board size' : 'a product'}, then your colour — ${colourList}, where made.`
-        : `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
+        : cat.sheetBuilt
+          ? `${cat.productCount} products across ${cat.sections.length} ranges: ${cat.sections.map((s) => s.name).join(', ')}.`
+          : `${cat.productCount} fitting type${cat.productCount === 1 ? '' : 's'} across ${cat.itemCount} stock lines. Every product below has a colour choice of Black, White, Brown, Anthracite Grey or Caramel.`;
     }
 
     // Sectioned categories (Roofline): one heading + card grid per section, in the order the
@@ -259,7 +262,8 @@
       ? imagePlaceholder()
       : el('div', { class: 'fitting-card__media', html: fittingIcon(cat.slug, f.fittingType) }, []);
     const children = [media, el('h3', {}, [document.createTextNode(f.fittingType)])];
-    if (f.colourNames) children.push(colourDots(f.colourNames));
+    // No dots for products with no colour choice (Drainage's single "Standard" option).
+    if (f.colourNames && !(f.colourNames.length === 1 && f.colourNames[0] === 'Standard')) children.push(colourDots(f.colourNames));
     children.push(priceP);
     children.push(el('span', { class: 'fitting-card__cta' }, [
       document.createTextNode(f.colourNames && f.colourNames.length === 1 ? 'View product →' : 'Choose colour →'),
@@ -300,11 +304,18 @@
 
     wrap.innerHTML = '';
 
+    // A product with a single "Standard" option (most of Drainage) has no colour to choose: hide
+    // the picker and don't append " — Standard" to its name.
+    const noColourChoice = product.colours.length === 1 && product.colours[0].name === 'Standard';
+    const labelFor = (colour) => (noColourChoice ? product.fittingType : `${product.fittingType} — ${colour.name}`);
+
     const head = el('div', { class: 'product-detail__head' }, [
       el('p', { class: 'eyebrow' }, [document.createTextNode(profile ? `${product.categoryName} — ${profile.name}` : product.categoryName)]),
       el('h1', {}, [document.createTextNode(product.fittingType)]),
       el('p', { class: 'product-detail__count' }, [
-        document.createTextNode(product.existingColoursOnly
+        document.createTextNode(noColourChoice
+          ? (product.section ? `Part of our ${product.section} range.` : '')
+          : product.existingColoursOnly
           ? `Available in ${product.colours.length} colour${product.colours.length === 1 ? '' : 's'}: ${product.colours.map((c) => c.name).join(', ')}.`
           : `${product.itemCount} stock line${product.itemCount === 1 ? '' : 's'} in this fitting type across our 5 colour options.`),
       ]),
@@ -326,7 +337,7 @@
     ]);
     const swatchRow = el('div', { class: 'colour-swatches', role: 'radiogroup', 'aria-label': 'Colour' }, []);
     selectorWrap.appendChild(swatchRow);
-    mainCol.appendChild(selectorWrap);
+    if (!noColourChoice) mainCol.appendChild(selectorWrap);
 
     // Info panel (updates on colour selection)
     const infoPanel = el('div', { class: 'product-info-panel' }, []);
@@ -341,13 +352,13 @@
       const request = ++imageRequest;
       const hex = colourKeyMap[colour.name] || '#ccc';
       gallery.innerHTML = '';
-      gallery.appendChild(el('div', { class: 'product-image__placeholder', role: 'img', 'aria-label': `${product.fittingType} in ${colour.name} — image coming soon` }, [
+      const caption = noColourChoice
+        ? [document.createTextNode(labelFor(colour))]
+        : [el('span', { class: 'product-image__dot', style: `background:${hex}` }, []), document.createTextNode(labelFor(colour))];
+      gallery.appendChild(el('div', { class: 'product-image__placeholder', role: 'img', 'aria-label': `${labelFor(colour)} — image coming soon` }, [
         el('span', { class: 'product-image__icon', html: PLACEHOLDER_ICON }, []),
         el('span', { class: 'product-image__label' }, [document.createTextNode('Image coming soon')]),
-        el('span', { class: 'product-image__colour' }, [
-          el('span', { class: 'product-image__dot', style: `background:${hex}` }, []),
-          document.createTextNode(`${product.fittingType} — ${colour.name}`),
-        ]),
+        el('span', { class: 'product-image__colour' }, caption),
       ]));
       if (!colour.sku) return;
       const img = new Image();
@@ -365,7 +376,7 @@
       renderImage(colour);
       infoPanel.innerHTML = '';
       const nameRow = el('div', { class: 'product-info-panel__name' }, [
-        document.createTextNode(`${product.fittingType} — ${colour.name}`),
+        document.createTextNode(labelFor(colour)),
       ]);
       infoPanel.appendChild(nameRow);
 
